@@ -1,0 +1,87 @@
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: eventops-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: eventops
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - eventops-network
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: eventops-backend
+    environment:
+      NODE_ENV: development
+      PORT: 3001
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/eventops
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: eventops
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      SESSION_SECRET: ${SESSION_SECRET:-change-this-secret-in-production}
+      GOOGLE_FORM_WEBHOOK_SECRET: ${GOOGLE_FORM_WEBHOOK_SECRET}
+      GOOGLE_FORM_SHEET_CSV_URL: ${GOOGLE_FORM_SHEET_CSV_URL}
+      GOOGLE_FORM_SHEET_CSV_URLS_JSON: ${GOOGLE_FORM_SHEET_CSV_URLS_JSON}
+      FRONTEND_URL: http://localhost:3000
+      SYNC_DB: "true"
+    ports:
+      - "3001:3001"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/uploads:/app/uploads
+      - /app/node_modules
+    networks:
+      - eventops-network
+    restart: unless-stopped
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:3001
+    container_name: eventops-frontend
+    environment:
+      NODE_ENV: development
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - eventops-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  eventops-network:
+    driver: bridge
+

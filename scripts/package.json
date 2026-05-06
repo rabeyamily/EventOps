@@ -1,0 +1,8 @@
+{
+  "name": "eventops-scripts",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "pdfkit": "^0.15.2"
+  }
+}

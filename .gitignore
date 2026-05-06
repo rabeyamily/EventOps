@@ -1,0 +1,69 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build output
+frontend/.next/
+frontend/out/
+frontend/build/
+backend/dist/
+
+# Environment files (contain secrets)
+.env
+.env.local
+.env.*.local
+
+# Session / credential artifacts
+cookies.txt
+*.pem
+*.key
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test coverage
+coverage/
+**/coverage/
+
+# Runtime data (not source)
+backend/uploads/
+
+# Local dataset imports/exports
+data/
+imports/
+exports/
+*.xlsx
+
+# Generated test fixtures
+test/students/*.csv
+test/events/*.csv
+test/geos/**/*.csv
+
+# Reference documents
+*.pdf
+
+# Font bundles (app fonts live in frontend/public/fonts/)
+NYUPerstare-Desktop-*/
+
+# TypeScript
+*.tsbuildinfo
+
+# Vercel
+.vercel
+
+# Misc
+*.pnp
+.pnp.js
