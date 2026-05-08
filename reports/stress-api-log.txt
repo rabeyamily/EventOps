@@ -1,0 +1,92 @@
+✓ GET /api/health — status=200
+✓ GET /api/health/db — status=200
+✓ GET /api/system-settings/current-semester — status=200
+✓ GET /api/system-settings/available-semesters — status=200
+✓ POST /api/auth/signup (GEO) — {"success":true,"data":{"message":"Account created successfully. You can now log in.","user":{"id":"7e003588-2811-4a95-8
+✓ POST /api/auth/signup (admin) — {"success":true,"data":{"message":"Account created successfully. You can now log in.","user":{"id":"2ee2f3e8-86e8-409a-8
+✓ POST /api/auth/login (admin) — status=200
+✓ admin session has user id — 2ee2f3e8-86e8-409a-823c-95cf70a0267c
+✓ GET /api/auth/me — admin
+✓ GET /api/auth/lookup-role — staff
+✓ PUT /api/staff/me — status=200
+✓ GET /api/staff/me — status=200
+✓ POST /api/students — status=201
+✓ student id captured — c7d92402-19c2-4084-b85e-b6af02700cb0
+✓ GET /api/students/:id — status=200
+✓ GET /api/students/:id/attendance — status=200
+✓ GET /api/students/:id/strikes — status=200
+✓ GET /api/students — status=200
+✓ GET /api/students/search — status=200
+✓ POST /api/events — status=201 {"success":true,"data":{"id":"264da203-2be7-4351-b0d4-180abad0572d","name":"Stress Event 1777397033564_eqjds0","startDate":"2026-04-29T17:23:56.914Z","endDate":"2026-04-29T20:23:56.914Z","startTime":n
+✓ event id captured — 264da203-2be7-4351-b0d4-180abad0572d
+✓ GET /api/events/:id — status=200
+✓ GET /api/events — status=200
+✓ GET /api/events/calendar — status=200
+✓ GET /api/events/upcoming — status=200
+✓ POST /api/events/:id/assignments/bulk — status=201
+✓ GET /api/events/:id/assignments — status=200
+✓ GET /api/events/:id/unassigned — status=200
+✓ POST /api/attendance-sheets/event/:id/add-bus — status=201
+✓ GET /api/attendance-sheets/event/:id/active — status=200
+✓ POST /api/attendance-sheets/:sheetId/activate — status=200
+✓ GET /api/attendance/event/:eventId — status=200
+✓ GET /api/attendance/event/:eventId/summary — status=200
+✓ POST mark attendance — status=201
+✓ POST tap attendance — status=200
+✓ POST bulk attendance — status=200
+✓ PATCH attendance notes — status=200
+✓ GET /api/attendance/student/:studentId — status=200
+✓ GET /api/attendance/event/:eventId/export — status=200 len=49314
+✓ GET /api/attendance/export — status=200
+✓ GET /api/dashboard/risk — status=200
+✓ GET /api/dashboard/event/:eventId — status=200
+✓ GET /api/dashboard/event-summary/:eventId — status=200
+✓ GET /api/dashboard/admin — status=200
+✓ GET /api/strikes/at-risk — status=200
+✓ GET /api/strikes/student/:studentId — status=200
+✓ POST /api/strikes — status=201
+✓ PATCH /api/strikes/:id/excuse — status=200
+✓ PATCH /api/strikes/:id/reinstate — status=200
+✓ DELETE /api/strikes/:id — status=200
+✓ POST /api/strikes/event/:eventId/process — status=200
+✓ GET /api/notifications — status=200
+✓ GET /api/notifications/preferences — status=200
+✓ PUT /api/notifications/preferences — status=200
+✓ POST /api/notifications/mark-all-read — status=200
+✓ POST /api/notifications/daily-summary — status=200
+✓ POST /api/notifications/student-alerts — status=200
+✓ POST /api/personal-agenda — status=201
+✓ GET /api/personal-agenda — status=200
+✓ PUT /api/personal-agenda/:id — status=200
+✓ DELETE /api/personal-agenda/:id — status=200
+✓ PUT /api/staff-notes — status=200
+✓ GET /api/staff-notes — status=200
+✓ GET /api/documents — status=200
+✓ POST /api/documents (link) — status=201
+✓ PATCH /api/documents/:id — status=200
+✓ DELETE /api/documents/:id — status=200
+✓ GET /api/system-settings — status=200
+✓ POST /api/system-settings/available-semesters — status=200
+✓ POST /api/admin/recalculate-statuses — status=200
+✓ GET /api/staff/:id/activity — status=200
+✓ GET /api/staff/:id — status=200
+✓ GET /api/staff — status=200
+✓ GET /api/dashboard/semester-report — status=200
+✓ POST /api/events/:id/lock — status=200
+✓ POST /api/events/:id/unlock — status=200
+✓ POST /api/events/:id/depart — status=200
+✓ POST unlock after depart — status=200
+✓ DELETE clear assignments — status=200
+✓ DELETE sheet (cleanup) — status=200
+✓ DELETE bus (cleanup) — status=200
+✓ DELETE /api/events/:id — status=200
+✓ DELETE /api/students/:id — status=200
+✓ POST /api/auth/logout — status=200
+✓ POST login GEO — status=200
+✓ GEO POST /api/students is forbidden — status=403
+✓ GEO GET /api/students — status=200
+✓ Concurrent GET /api/health x120 — failures=0
+✓ Concurrent authenticated GET /api/events/upcoming x80 — fail=0
+
+--- Summary ---
+Passed: 89  Failed: 0  Total: 89

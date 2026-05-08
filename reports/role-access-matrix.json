@@ -1,0 +1,265 @@
+{
+  "summary": {
+    "generatedAt": "2026-04-28T17:26:29.043Z",
+    "baseUrl": "http://localhost:3001",
+    "adminEmail": "role.admin.1777397184646_t7up6@test.local",
+    "geoEmail": "role.geo.1777397184646_t7up6@test.local",
+    "totalChecks": 28,
+    "adminForbiddenCount": 0,
+    "geoForbiddenCount": 15
+  },
+  "matrix": [
+    {
+      "label": "Dashboard risk",
+      "method": "GET",
+      "endpoint": "/api/dashboard/risk",
+      "admin_status": 200,
+      "geo_status": 200,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "allowed_or_validated"
+    },
+    {
+      "label": "Dashboard admin",
+      "method": "GET",
+      "endpoint": "/api/dashboard/admin",
+      "admin_status": 200,
+      "geo_status": 403,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "forbidden"
+    },
+    {
+      "label": "Students list",
+      "method": "GET",
+      "endpoint": "/api/students?limit=5",
+      "admin_status": 200,
+      "geo_status": 200,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "allowed_or_validated"
+    },
+    {
+      "label": "Create student",
+      "method": "POST",
+      "endpoint": "/api/students",
+      "admin_status": 201,
+      "geo_status": 403,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "forbidden"
+    },
+    {
+      "label": "Student detail",
+      "method": "GET",
+      "endpoint": "/api/students/0f3140b2-14b2-40d0-9560-7f2b2259d5bf",
+      "admin_status": 200,
+      "geo_status": 200,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "allowed_or_validated"
+    },
+    {
+      "label": "Delete student",
+      "method": "DELETE",
+      "endpoint": "/api/students/0f3140b2-14b2-40d0-9560-7f2b2259d5bf",
+      "admin_status": 200,
+      "geo_status": 403,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "forbidden"
+    },
+    {
+      "label": "Events list",
+      "method": "GET",
+      "endpoint": "/api/events?limit=5",
+      "admin_status": 200,
+      "geo_status": 200,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "allowed_or_validated"
+    },
+    {
+      "label": "Create event",
+      "method": "POST",
+      "endpoint": "/api/events",
+      "admin_status": 201,
+      "geo_status": 403,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "forbidden"
+    },
+    {
+      "label": "Event detail",
+      "method": "GET",
+      "endpoint": "/api/events/ccb92b8c-c78f-46ad-baed-9726bf5a1f6e",
+      "admin_status": 200,
+      "geo_status": 200,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "allowed_or_validated"
+    },
+    {
+      "label": "Lock event",
+      "method": "POST",
+      "endpoint": "/api/events/ccb92b8c-c78f-46ad-baed-9726bf5a1f6e/lock",
+      "admin_status": 200,
+      "geo_status": 400,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "allowed_or_validated"
+    },
+    {
+      "label": "Unlock event",
+      "method": "POST",
+      "endpoint": "/api/events/ccb92b8c-c78f-46ad-baed-9726bf5a1f6e/unlock",
+      "admin_status": 200,
+      "geo_status": 403,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "forbidden"
+    },
+    {
+      "label": "Assign student",
+      "method": "POST",
+      "endpoint": "/api/events/ccb92b8c-c78f-46ad-baed-9726bf5a1f6e/assignments",
+      "admin_status": 404,
+      "geo_status": 404,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "allowed_or_validated"
+    },
+    {
+      "label": "Bulk assign students",
+      "method": "POST",
+      "endpoint": "/api/events/ccb92b8c-c78f-46ad-baed-9726bf5a1f6e/assignments/bulk",
+      "admin_status": 201,
+      "geo_status": 403,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "forbidden"
+    },
+    {
+      "label": "Clear assignments",
+      "method": "DELETE",
+      "endpoint": "/api/events/ccb92b8c-c78f-46ad-baed-9726bf5a1f6e/assignments",
+      "admin_status": 200,
+      "geo_status": 403,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "forbidden"
+    },
+    {
+      "label": "Attendance export",
+      "method": "GET",
+      "endpoint": "/api/attendance/export",
+      "admin_status": 200,
+      "geo_status": 200,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "allowed_or_validated"
+    },
+    {
+      "label": "Create strike",
+      "method": "POST",
+      "endpoint": "/api/strikes",
+      "admin_status": 404,
+      "geo_status": 403,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "forbidden"
+    },
+    {
+      "label": "Process strikes",
+      "method": "POST",
+      "endpoint": "/api/strikes/event/ccb92b8c-c78f-46ad-baed-9726bf5a1f6e/process",
+      "admin_status": 200,
+      "geo_status": 403,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "forbidden"
+    },
+    {
+      "label": "Documents list",
+      "method": "GET",
+      "endpoint": "/api/documents",
+      "admin_status": 200,
+      "geo_status": 200,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "allowed_or_validated"
+    },
+    {
+      "label": "Create document link",
+      "method": "POST",
+      "endpoint": "/api/documents",
+      "admin_status": 201,
+      "geo_status": 403,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "forbidden"
+    },
+    {
+      "label": "Staff list",
+      "method": "GET",
+      "endpoint": "/api/staff?limit=5",
+      "admin_status": 200,
+      "geo_status": 200,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "allowed_or_validated"
+    },
+    {
+      "label": "Create staff",
+      "method": "POST",
+      "endpoint": "/api/staff",
+      "admin_status": 200,
+      "geo_status": 403,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "forbidden"
+    },
+    {
+      "label": "System settings all",
+      "method": "GET",
+      "endpoint": "/api/system-settings",
+      "admin_status": 200,
+      "geo_status": 403,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "forbidden"
+    },
+    {
+      "label": "Set current semester",
+      "method": "PUT",
+      "endpoint": "/api/system-settings/current-semester",
+      "admin_status": 200,
+      "geo_status": 403,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "forbidden"
+    },
+    {
+      "label": "Admin recalculate statuses",
+      "method": "POST",
+      "endpoint": "/api/admin/recalculate-statuses",
+      "admin_status": 200,
+      "geo_status": 403,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "forbidden"
+    },
+    {
+      "label": "Notifications list",
+      "method": "GET",
+      "endpoint": "/api/notifications",
+      "admin_status": 200,
+      "geo_status": 200,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "allowed_or_validated"
+    },
+    {
+      "label": "Generate daily summary",
+      "method": "POST",
+      "endpoint": "/api/notifications/daily-summary",
+      "admin_status": 200,
+      "geo_status": 403,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "forbidden"
+    },
+    {
+      "label": "Personal agenda list",
+      "method": "GET",
+      "endpoint": "/api/personal-agenda",
+      "admin_status": 200,
+      "geo_status": 200,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "allowed_or_validated"
+    },
+    {
+      "label": "Create personal agenda",
+      "method": "POST",
+      "endpoint": "/api/personal-agenda",
+      "admin_status": 201,
+      "geo_status": 201,
+      "admin_access": "allowed_or_validated",
+      "geo_access": "allowed_or_validated"
+    }
+  ]
+}
